@@ -1,8 +1,6 @@
 local M = {}
 local api = vim.api
 
-M.attach = require("colorify.attach")
-
 -- Require config and set default options
 local config = require("colorify.config")
 
@@ -31,5 +29,7 @@ M.run = function()
 		end,
 	})
 end
+
+M.attach = require("colorify.attach")
 
 return M
