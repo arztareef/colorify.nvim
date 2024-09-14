@@ -1,9 +1,9 @@
 local M = {}
 
-M.options = {
+M.default_options = {
 	colorify = {
 		enabled = true,
-		mode = "bg", -- fg, bg, virtual
+		mode = "virtual", -- fg, bg, virtual
 		virt_text = "󱓻 ",
 		highlight = { hex = true, lspvars = true },
 	},
@@ -14,5 +14,11 @@ M.options = {
 		},
 	},
 }
+
+M.options = {}
+
+function M.setup(opts)
+	M.options = vim.tbl_deep_extend("force", M.default_options, opts or {})
+end
 
 return M

@@ -7,7 +7,8 @@ M.attach = require("colorify.attach")
 local config = require("colorify.config")
 
 -- Setup function
-M.setup = function()
+M.setup = function(opts)
+	config.setup(opts)
 	if config.options.colorify.enabled then
 		M.run()
 	end
