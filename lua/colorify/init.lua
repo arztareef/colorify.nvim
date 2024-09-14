@@ -1,10 +1,10 @@
 local M = {}
 local api = vim.api
 
-M.attach = require("colorizer.attach")
+M.attach = require("colorify.attach")
 
 -- Require config and set default options
-local config = require("colorizer.config")
+local config = require("colorify.config")
 
 -- Setup function
 M.setup = function(opts)
