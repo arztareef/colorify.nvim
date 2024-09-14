@@ -24,12 +24,10 @@ M.run = function()
 		-- callback = function(args)
 		callback = function(args)
 			if vim.bo[args.buf].bl then
-				M.attach(args.buf, args.event)
+				require("colorify.attach")(args.buf, args.event)
 			end
 		end,
 	})
 end
-
-M.attach = require("colorify.attach")
 
 return M
