@@ -15,10 +15,4 @@ M.options = {
 	},
 }
 
--- Setup function to override default options
-M.setup = function(opts)
-	-- Deep merge the user's options with the default ones
-	M.options = vim.tbl_deep_extend("force", M.options, opts or {})
-end
-
 return M
