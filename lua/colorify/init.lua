@@ -4,7 +4,7 @@ local api = vim.api
 -- Require config and set default options
 local config = require("colorify.config")
 
-M.run = function()
+M.run = function(opts)
 	api.nvim_create_autocmd({
 		"TextChanged",
 		"TextChangedI",
@@ -14,8 +14,8 @@ M.run = function()
 		"WinScrolled",
 		"BufEnter",
 	}, {
-		-- callback = function(args)
 		callback = function(args)
+			M.options = vim.tbl_deep_extend("force", require("colorify.config"), opts)
 			if vim.bo[args.buf].bl then
 				require("colorify.attach")(args.buf, args.event)
 			end
@@ -24,9 +24,9 @@ M.run = function()
 end
 
 -- Setup function
-M.setup = function()
+M.setup = function(setup)
 	if config.options.colorify.enabled then
-		M.run()
+		M.run(setup)
 	end
 end
 
