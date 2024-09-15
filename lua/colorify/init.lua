@@ -4,13 +4,6 @@ local api = vim.api
 -- Require config and set default options
 local config = require("colorify.config")
 
--- Setup function
-M.setup = function()
-	if config.options.colorify.enabled then
-		M.run()
-	end
-end
-
 M.run = function()
 	api.nvim_create_autocmd({
 		"TextChanged",
@@ -28,6 +21,13 @@ M.run = function()
 			end
 		end,
 	})
+end
+
+-- Setup function
+M.setup = function()
+	if config.options.colorify.enabled then
+		M.run()
+	end
 end
 
 return M
