@@ -8,7 +8,7 @@ local options = {
 
 	cmp = {
 		format_colors = {
-			tailwind = false, -- will work for css lsp too
+			tailwind = true, -- will work for css lsp too
 			icon = "󱓻",
 		},
 	},
