@@ -13,3 +13,5 @@ local options = {
 		},
 	},
 }
+
+return options
