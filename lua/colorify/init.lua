@@ -1,5 +1,18 @@
 local M = {}
 local api = vim.api
+local config = require("colorify.config")
+
+-- Deep merge function
+local function deep_merge(orig, overrides)
+	for k, v in pairs(overrides) do
+		if type(v) == "table" and type(orig[k] or false) == "table" then
+			deep_merge(orig[k], v)
+		else
+			orig[k] = v
+		end
+	end
+	return orig
+end
 
 M.run = function()
 	api.nvim_create_autocmd({
@@ -20,7 +33,9 @@ M.run = function()
 	})
 end
 
-M.setup = function()
+M.setup = function(opts)
+	-- Merge user options with the default config
+	config = deep_merge(config, opts or {})
 	M.run()
 end
 
