@@ -14,7 +14,7 @@ M.tailwind = function(entry, item)
 			api.nvim_set_hl(0, hl, { fg = color })
 		end
 
-		item.kind = cmp.icons_left and colors_icon or " " .. colors_icon
+		item.kind = colors_icon
 		item.kind_hl_group = hl
 		item.menu_hl_group = hl
 	end

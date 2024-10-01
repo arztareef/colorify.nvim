@@ -22,4 +22,8 @@ M.run = function()
 	})
 end
 
+M.cmp_attach = function(e, i)
+	require("colorify.format").tailwind(e, i)
+end
+
 return M
